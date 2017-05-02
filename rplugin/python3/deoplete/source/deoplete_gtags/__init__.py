@@ -4,6 +4,8 @@ from deoplete.source.base import Base # pylint: disable=locally-disabled, import
 
 class GtagsBase(Base):
 
+    GTAGS_DB_NOT_FOUND_ERROR = 3
+
     def exec_global(self, search_args, context):
         command = ['global', '-q'] + search_args
         global_proc = subprocess.Popen(command,
@@ -17,6 +19,10 @@ class GtagsBase(Base):
             global_proc.kill()
             output, err_output = global_proc.communicate()
         global_exitcode = global_proc.returncode
+
+        # Not every project will include a GTAGS file...
+        if global_exitcode == self.GTAGS_DB_NOT_FOUND_ERROR:
+            return []
 
         if global_exitcode != 0:
             self.print_global_error(global_exitcode, err_output)
