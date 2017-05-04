@@ -18,7 +18,7 @@ class Source(GtagsBase):
 
     @classmethod
     def get_search_word(cls, context):
-        return context['input']
+        return '"{}"'.format(context['input'])
 
     def gather_candidates(self, context):
         word = self.get_search_word(context)
