@@ -23,7 +23,7 @@ class Source(GtagsBase):
 
     @classmethod
     def get_search_word(cls, context):
-        return '"{}"'.format(context['input'])
+        return '{}'.format(context['input'])
 
     @classmethod
     def is_word_valid_for_search(cls, word):
