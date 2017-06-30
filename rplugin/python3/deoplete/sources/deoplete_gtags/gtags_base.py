@@ -34,7 +34,7 @@ class GtagsBase(Base):
         if global_exitcode == 1:
             error_message = '[deoplete-gtags] Error: file does not exists'
         elif global_exitcode == 2:
-            error_message = '[deoplete-gtags] Error: invalid argumnets\n{}'.format(err_output)
+            error_message = '[deoplete-gtags] Error: invalid arguments\n{}'.format(err_output)
         elif global_exitcode == 3:
             error_message = '[deoplete-gtags] Error: GTAGS not found'
         elif global_exitcode == 126:

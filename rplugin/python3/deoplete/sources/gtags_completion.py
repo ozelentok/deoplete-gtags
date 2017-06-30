@@ -19,7 +19,7 @@ class Source(GtagsBase):
 
     @classmethod
     def get_search_flags(cls):
-        return ['-c']
+        return ['-c', '--']
 
     @classmethod
     def get_search_word(cls, context):
