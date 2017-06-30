@@ -19,7 +19,7 @@ class Source(GtagsBase):
 
     @classmethod
     def get_search_flags(cls):
-        return ['-c', '--']
+        return ['-c']
 
     @classmethod
     def get_search_word(cls, context):
@@ -36,7 +36,7 @@ class Source(GtagsBase):
         word = self.get_search_word(context)
         if not self.is_word_valid_for_search(word):
             return []
-        tags = self.exec_global(self.get_search_flags() + [word], context)
+        tags = self.exec_global(self.get_search_flags() + ['--', word], context)
         candidates = self._convert_to_candidates(tags)
         return candidates
 
