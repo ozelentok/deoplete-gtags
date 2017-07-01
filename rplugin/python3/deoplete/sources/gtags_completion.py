@@ -8,7 +8,7 @@ class Source(GtagsBase):
 
     FORRBIDDEN_CHARACTERS = [
         '^', '$', '{', '}', '(', ')', '.',
-        '*', '+', '[', ']', '?', '\\'
+        '*', '+', '[', ']', '?', '\\', '|',
     ]
 
     def __init__(self, vim):
