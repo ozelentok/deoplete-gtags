@@ -7,7 +7,7 @@ class GtagsBase(Base):
     GTAGS_DB_NOT_FOUND_ERROR = 3
 
     def exec_global(self, search_args, context):
-        command = ['global', '-q'] + search_args
+        command = ['global', '--quiet', '--completion'] + search_args
         global_proc = subprocess.Popen(command,
                                        cwd=context['cwd'],
                                        universal_newlines=True,
